@@ -21,7 +21,7 @@ startBtn.addEventListener('click', () => {
 
 function startGame() {
     setInterval(increaseTime, 1000);
-    setInterval(showCoconut, 300); 
+    setInterval(showCoconut, 3000); 
 }
 
 function increaseTime() {
