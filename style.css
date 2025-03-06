@@ -78,23 +78,25 @@ body {
   opacity: 1;
 }
 
-.groundhog {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.groundhog img {
-  width: 100px;
-  height: 100px;
-}
-
-.groundhog.caught {
-  transform: translate(-50%, -50%) scale(0);
-}
+.groundhog, .coconut {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .groundhog img, .coconut img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .groundhog.caught {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  
