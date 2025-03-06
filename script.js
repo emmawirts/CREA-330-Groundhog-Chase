@@ -7,7 +7,7 @@ const message = document.getElementById('message');
 
 let seconds = 0;
 let score = 0;
-const groundhogImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Groundhog-Standing2.jpg/640px-Groundhog-Standing2.jpg";
+const groundhogImg = "groundhog.png";
 
 startBtn.addEventListener('click', () => {
     screens[0].classList.add('up');
