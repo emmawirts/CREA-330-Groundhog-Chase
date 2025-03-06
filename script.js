@@ -7,7 +7,11 @@ const message = document.getElementById('message');
 
 let seconds = 0;
 let score = 0;
-const groundhogImg = "groundhog.png";
+let coconutTimeout;
+
+
+const groundhogImg = "groundhog.png";  
+const coconutImg = "coconut.png";      
 
 startBtn.addEventListener('click', () => {
     screens[0].classList.add('up');
@@ -17,6 +21,7 @@ startBtn.addEventListener('click', () => {
 
 function startGame() {
     setInterval(increaseTime, 1000);
+    setInterval(showCoconut, 30000); 
 }
 
 function increaseTime() {
@@ -34,7 +39,7 @@ function createGroundhog() {
     const { x, y } = getRandomLocation();
     groundhog.style.top = `${y}px`;
     groundhog.style.left = `${x}px`;
-    groundhog.innerHTML = `<img src="${groundhogImg}" alt="groundhog" style="transform: rotate(${Math.random() * 360}deg)" />`;
+    groundhog.innerHTML = `<img src="${groundhogImg}" alt="Groundhog" class="groundhog-image" />`;
 
     groundhog.addEventListener('click', catchGroundhog);
     gameContainer.appendChild(groundhog);
@@ -66,4 +71,26 @@ function increaseScore() {
         message.classList.add('visible');
     }
     scoreEl.innerHTML = `Score: ${score}`;
+}
+
+
+function showCoconut() {
+    const coconut = document.createElement('div');
+    coconut.classList.add('coconut');
+    const { x, y } = getRandomLocation();
+    coconut.style.top = `${y}px`;
+    coconut.style.left = `${x}px`;
+    coconut.innerHTML = `<img src="${coconutImg}" alt="Coconut" class="coconut-image" />`;
+
+    coconut.addEventListener('click', gameOver);
+    gameContainer.appendChild(coconut);
+
+    coconutTimeout = setTimeout(() => {
+        coconut.remove();
+    }, 5000);
+}
+
+function gameOver() {
+    alert("Oh no! That's not a groundhog, you caught a coconut! Game Over");
+    location.reload(); 
 }
